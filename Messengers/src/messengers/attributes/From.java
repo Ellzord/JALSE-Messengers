@@ -1,4 +1,4 @@
-package messengers;
+package messengers.attributes;
 
 import jalse.attributes.NonAttributeWrapper;
 
@@ -6,8 +6,8 @@ import java.util.UUID;
 
 public class From extends NonAttributeWrapper<UUID> {
 
-    public From(UUID id) {
-
+    public From(final UUID id) {
 	super(id);
     }
+
 }

@@ -1,4 +1,4 @@
-package messengers;
+package messengers.entities;
 
 import jalse.entities.Entity;
 
@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 public interface Messenger extends Entity {
 
     Set<Message> getMessages();
-    
+
     Stream<Message> streamMessages();
+
 }
