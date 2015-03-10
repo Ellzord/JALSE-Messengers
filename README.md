@@ -7,7 +7,7 @@ Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is
 | Class | Function |
 | ------------- | ------|
 | [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Messenger.java) | Used to identify the people. |
-| [Grass](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Message.java) | Used to identify the message. |
+| [Message](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Message.java) | Used to identify the message. |
 
 ### Attributes
 
