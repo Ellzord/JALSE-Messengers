@@ -6,24 +6,24 @@ Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is
 
 | Class | Function |
 | ------------- | ------|
-| [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/Messenger.java) | Used to identify the people. |
-| [Grass](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/Message.java) | Used to identify the message. |
+| [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Messenger.java) | Used to identify the people. |
+| [Grass](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Message.java) | Used to identify the message. |
 
 ### Attributes
 
 | Class | Function |
 | ------------- | ------|
-| [Text](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/Text.java) | The message content. |
-| [From](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/From.java) | The senders identification. |
+| [Text](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/attributes/Text.java) | The message content. |
+| [From](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/attributes/From.java) | The senders identification. |
 
 ### Listeners
 
 | Class | Function |
 | ------------- | ------|
-| [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/ReplyToMessage.java) | Schedules a reply to be sent. |
+| [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/listeners/ReplyToMessage.java) | Schedules a reply to be sent. |
 
 ### Actions
 
 | Class | Function |
 | ------------- | ------|
-| [SendMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/SendMessage.java) | Sends a message to another person. |
+| [SendMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/actions/SendMessage.java) | Sends a message to another person. |
