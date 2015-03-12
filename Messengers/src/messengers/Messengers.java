@@ -19,13 +19,13 @@ import messengers.listeners.ReplyToMessage;
 
 public class Messengers {
 
-    public static final int MESSENGERS = 100;
+    public static final int MESSENGERS = 10;
 
-    public static final int SIMULATION_DURATION = 10;
+    public static final long SIMULATION_DURATION = TimeUnit.SECONDS.toMillis(10);
 
-    public static final int MIN_WAIT = 200;
+    public static final long MIN_WAIT = 200;
 
-    public static final int MAX_WAIT = 10000;
+    public static final long MAX_WAIT = 1000;
 
     public static void main(final String[] args) throws InterruptedException {
 	final JALSE jalse = JALSEBuilder.buildSingleThreadedJALSE(10);
@@ -52,7 +52,7 @@ public class Messengers {
 	System.out.println("Ticking the engine..");
 
 	jalse.tick();
-	Thread.sleep(TimeUnit.SECONDS.toMillis(SIMULATION_DURATION));
+	Thread.sleep(SIMULATION_DURATION);
 	jalse.stop();
 
 	System.out.println("Stopped the engine..");
@@ -61,7 +61,7 @@ public class Messengers {
 	System.out.println(String.format("A total of %d messages were sent", totalMessages));
     }
 
-    public static int randomWait() {
-	return ThreadLocalRandom.current().nextInt(MAX_WAIT - MIN_WAIT) + MIN_WAIT;
+    public static long randomWait() {
+	return ThreadLocalRandom.current().nextLong(MAX_WAIT - MIN_WAIT) + MIN_WAIT;
     }
 }
