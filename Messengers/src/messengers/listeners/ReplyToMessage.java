@@ -20,5 +20,4 @@ public class ReplyToMessage extends AttributeAdapter<From> {
 	final Entity recipient = (Entity) message.getContainer().get();
 	recipient.scheduleAction(new SendMessage(sender), Messengers.randomWait(), TimeUnit.MILLISECONDS);
     }
-
 }

@@ -10,5 +10,4 @@ public interface Messenger extends Entity {
     Set<Message> getMessages();
 
     Stream<Message> streamMessages();
-
 }

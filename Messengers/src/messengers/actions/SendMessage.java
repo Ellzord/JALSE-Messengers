@@ -1,9 +1,9 @@
 package messengers.actions;
 
 import jalse.actions.Action;
-import jalse.actions.TickInfo;
 import jalse.entities.Entity;
 import jalse.entities.EntityContainer;
+import jalse.misc.Engine.TickInfo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,5 +51,4 @@ public class SendMessage implements Action<Entity> {
 	m.setText(new Text(text.toString()));
 	m.setFrom(new From(actor.getID()));
     }
-
 }

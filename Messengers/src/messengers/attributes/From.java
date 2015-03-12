@@ -9,5 +9,4 @@ public class From extends NonAttributeWrapper<UUID> {
     public From(final UUID id) {
 	super(id);
     }
-
 }

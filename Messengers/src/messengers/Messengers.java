@@ -27,12 +27,8 @@ public class Messengers {
 
     public static final int MAX_WAIT = 10000;
 
-    public static int randomWait() {
-	return ThreadLocalRandom.current().nextInt(MAX_WAIT - MIN_WAIT) + MIN_WAIT;
-    }
-
     public static void main(final String[] args) throws InterruptedException {
-	final JALSE jalse = JALSEBuilder.createSingleThreadedJALSE(10);
+	final JALSE jalse = JALSEBuilder.buildSingleThreadedJALSE(10);
 	final List<UUID> entityIDs = new ArrayList<>();
 
 	System.out.println("Creating messengers..");
@@ -65,4 +61,7 @@ public class Messengers {
 	System.out.println(String.format("A total of %d messages were sent", totalMessages));
     }
 
+    public static int randomWait() {
+	return ThreadLocalRandom.current().nextInt(MAX_WAIT - MIN_WAIT) + MIN_WAIT;
+    }
 }

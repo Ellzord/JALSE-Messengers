@@ -16,5 +16,4 @@ public interface Message extends Entity {
     Optional<From> setFrom(From from);
 
     Optional<Text> setText(Text text);
-
 }
