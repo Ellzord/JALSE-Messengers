@@ -1,9 +1,9 @@
 package messengers.actions;
 
-import jalse.actions.Action;
+import jalse.engine.actions.Action;
+import jalse.engine.actions.ActionContext;
 import jalse.entities.Entity;
 import jalse.entities.EntityContainer;
-import jalse.misc.Engine.TickInfo;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,9 +39,10 @@ public class SendMessage implements Action<Entity> {
     }
 
     @Override
-    public void perform(final Entity actor, final TickInfo tick) {
-	final String text = createText();
+    public void perform(final ActionContext<Entity> context) {
+	final Entity actor = context.getActor();
 
+	final String text = createText();
 	System.out.println(String.format("%s -> %s: %s", actor.getID(), to, text));
 
 	final EntityContainer container = actor.getContainer().get();
