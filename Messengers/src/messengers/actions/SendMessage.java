@@ -1,7 +1,7 @@
 package messengers.actions;
 
-import jalse.engine.actions.Action;
-import jalse.engine.actions.ActionContext;
+import jalse.actions.Action;
+import jalse.actions.ActionContext;
 import jalse.entities.Entity;
 import jalse.entities.EntityContainer;
 
@@ -40,13 +40,13 @@ public class SendMessage implements Action<Entity> {
 
     @Override
     public void perform(final ActionContext<Entity> context) {
-	final Entity actor = context.getActor();
+	final Entity actor = context.getOrNullActor();
 
 	final String text = createText();
 	System.out.println(String.format("%s -> %s: %s", actor.getID(), to, text));
 
-	final EntityContainer container = actor.getContainer().get();
-	final Messenger recipient = container.getEntityAsType(to, Messenger.class).get();
+	final EntityContainer container = actor.getOrNullContainer();
+	final Messenger recipient = container.getOrNullEntityAsType(to, Messenger.class);
 
 	final Message m = recipient.newEntity(Message.class);
 	m.setText(new Text(text.toString()));

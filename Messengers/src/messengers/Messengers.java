@@ -19,16 +19,16 @@ import messengers.listeners.ReplyToMessage;
 
 public class Messengers {
 
-    public static final int MESSENGERS = 10;
+    public static final int MESSENGERS = 100;
 
-    public static final long SIMULATION_DURATION = TimeUnit.SECONDS.toMillis(10);
+    public static final long SIMULATION_DURATION = TimeUnit.SECONDS.toMillis(20);
 
     public static final long MIN_WAIT = 200;
 
-    public static final long MAX_WAIT = 1000;
+    public static final long MAX_WAIT = 600;
 
     public static void main(final String[] args) throws InterruptedException {
-	final JALSE jalse = JALSEBuilder.buildSingleThreadedJALSE(10);
+	final JALSE jalse = JALSEBuilder.buildDefaultJALSE();
 	final List<UUID> entityIDs = new ArrayList<>();
 
 	System.out.println("Creating messengers..");
@@ -46,12 +46,11 @@ public class Messengers {
 	jalse.streamEntities().forEach(e -> {
 	    final UUID recipient = entityIDs.get(r.nextInt(entityIDs.size()));
 	    System.out.println(String.format("Matching %s -> %s", e.getID(), recipient));
-	    e.scheduleAction(new SendMessage(recipient), randomWait(), TimeUnit.MILLISECONDS);
+	    e.scheduleForActor(new SendMessage(recipient), randomWait(), TimeUnit.MILLISECONDS);
 	});
 
 	System.out.println("Ticking the engine..");
 
-	jalse.tick();
 	Thread.sleep(SIMULATION_DURATION);
 	jalse.stop();
 

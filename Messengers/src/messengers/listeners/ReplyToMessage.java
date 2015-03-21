@@ -17,7 +17,7 @@ public class ReplyToMessage extends AttributeAdapter<From> {
     public void attributeAdded(final AttributeEvent<From> event) {
 	final UUID sender = event.getAttribute().unwrap();
 	final Entity message = (Entity) event.getContainer();
-	final Entity recipient = (Entity) message.getContainer().get();
-	recipient.scheduleAction(new SendMessage(sender), Messengers.randomWait(), TimeUnit.MILLISECONDS);
+	final Entity recipient = (Entity) message.getOrNullContainer();
+	recipient.scheduleForActor(new SendMessage(sender), Messengers.randomWait(), TimeUnit.MILLISECONDS);
     }
 }
