@@ -48,7 +48,7 @@ public class SendMessage implements Action<Entity> {
 	final EntityContainer container = actor.getOrNullContainer();
 	final Messenger recipient = container.getOrNullEntityAsType(to, Messenger.class);
 
-	final Message m = recipient.newEntity(Message.class);
+	final Message m = recipient.newMessage();
 	m.setText(new Text(text.toString()));
 	m.setFrom(new From(actor.getID()));
     }
