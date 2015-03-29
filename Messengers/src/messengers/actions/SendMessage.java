@@ -12,8 +12,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-import messengers.attributes.From;
-import messengers.attributes.Text;
 import messengers.entities.Message;
 import messengers.entities.Messenger;
 
@@ -49,7 +47,7 @@ public class SendMessage implements Action<Entity> {
 	final Messenger recipient = container.getOrNullEntityAsType(to, Messenger.class);
 
 	final Message m = recipient.newMessage();
-	m.setText(new Text(text.toString()));
-	m.setFrom(new From(actor.getID()));
+	m.setText(text);
+	m.setFrom(actor.getID());
     }
 }

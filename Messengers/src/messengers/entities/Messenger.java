@@ -10,12 +10,12 @@ import java.util.stream.Stream;
 
 public interface Messenger extends Entity {
 
-    @GetEntities(ofType = true)
+    @GetEntities
     Set<Message> getMessages();
 
     @NewEntity
     Message newMessage();
 
-    @StreamEntities(ofType = true)
+    @StreamEntities
     Stream<Message> streamMessages();
 }

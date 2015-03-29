@@ -9,13 +9,12 @@ import java.util.concurrent.TimeUnit;
 
 import messengers.Messengers;
 import messengers.actions.SendMessage;
-import messengers.attributes.From;
 
-public class ReplyToMessage extends AttributeAdapter<From> {
+public class ReplyToMessage extends AttributeAdapter<UUID> {
 
     @Override
-    public void attributeAdded(final AttributeEvent<From> event) {
-	final UUID sender = event.getAttribute().unwrap();
+    public void attributeAdded(final AttributeEvent<UUID> event) {
+	final UUID sender = event.getValue();
 	final Entity message = (Entity) event.getContainer();
 	final Entity recipient = (Entity) message.getOrNullContainer();
 	recipient.scheduleForActor(new SendMessage(sender), Messengers.randomWait(), TimeUnit.MILLISECONDS);

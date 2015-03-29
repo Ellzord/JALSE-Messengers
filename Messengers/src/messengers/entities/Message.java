@@ -5,21 +5,19 @@ import jalse.entities.annotations.GetAttribute;
 import jalse.entities.annotations.SetAttribute;
 
 import java.util.Optional;
-
-import messengers.attributes.From;
-import messengers.attributes.Text;
+import java.util.UUID;
 
 public interface Message extends Entity {
 
-    @GetAttribute
-    Optional<From> getFrom();
+    @GetAttribute("from")
+    Optional<UUID> getFrom();
 
-    @GetAttribute
-    Optional<Text> getText();
+    @GetAttribute("text")
+    Optional<String> getText();
 
-    @SetAttribute
-    Optional<From> setFrom(From from);
+    @SetAttribute("from")
+    Optional<UUID> setFrom(UUID from);
 
-    @SetAttribute
-    Optional<Text> setText(Text text);
+    @SetAttribute("text")
+    Optional<String> setText(String text);
 }
