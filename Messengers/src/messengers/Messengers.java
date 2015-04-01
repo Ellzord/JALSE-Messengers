@@ -1,5 +1,6 @@
 package messengers;
 
+import static jalse.attributes.Attributes.newTypeOf;
 import jalse.JALSE;
 import jalse.JALSEBuilder;
 import jalse.entities.Entities;
@@ -37,7 +38,8 @@ public class Messengers {
 	    final Messenger m = jalse.newEntity(Messenger.class);
 	    entityIDs.add(m.getID());
 	    System.out.println(String.format("New Messenger created: %s", m.getID()));
-	    m.addEntityListener(Listeners.createAttributeListenerSupplier("from", UUID.class, ReplyToMessage::new));
+	    m.addEntityListener(Listeners.newAttributeListenerSupplier("from", newTypeOf(UUID.class),
+		    ReplyToMessage::new));
 	}
 
 	System.out.println("Sending the first messages..");
