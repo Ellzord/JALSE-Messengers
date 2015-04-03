@@ -10,10 +10,10 @@ Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is
 6. Repeat from 4.
 
 ### Model key
-![GitHub Logo](/model-key.png)
+![Model key](/model-key.png)
 
 ### Model
-![GitHub Logo](/messengers-model.png)
+![Model](/messengers-model.png)
 
 ### More
 See the [Wiki](https://github.com/Ellzord/JALSE/wiki) for more information.
