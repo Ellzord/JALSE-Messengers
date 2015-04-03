@@ -1,29 +1,19 @@
 ## Messengers
+Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is a simulation of several people text messenging each other (upon receiving a message a reply is sent back).
 
-Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is a simulation of several people text messenging each other (upon receiving a message a reply is sent back). Below there are details about each of the classes and their function within the example (see the [Wiki](https://github.com/Ellzord/JALSE/wiki) for more information).
+### Simulation life-cycle
+1. [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Messenger.java)s are created.
+2. Messengers are then paired together.
+3. A [SendMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/actions/SendMessage.java) is scheduled for each messenger.
+4. A message is sent by creating a [Message](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Message.java) entity.
+5. Sending a messages causes [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/listeners/ReplyToMessage.java) to fire sending a reply back.
+6. Repeat from 4.
 
-### Agents
+### Model key
+![GitHub Logo](/model-key.png)
 
-| Class | Function |
-| ------------- | ------|
-| [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Messenger.java) | Used to identify the people. |
-| [Message](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/entities/Message.java) | Used to identify the message. |
+### Model
+![GitHub Logo](/messengers-model.png)
 
-### Attributes
-
-| Class | Function |
-| ------------- | ------|
-| [Text](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/attributes/Text.java) | The message content. |
-| [From](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/attributes/From.java) | The senders identification. |
-
-### Listeners
-
-| Class | Function |
-| ------------- | ------|
-| [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/listeners/ReplyToMessage.java) | Schedules a reply to be sent. |
-
-### Actions
-
-| Class | Function |
-| ------------- | ------|
-| [SendMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/Messengers/src/messengers/actions/SendMessage.java) | Sends a message to another person. |
+### More
+See the [Wiki](https://github.com/Ellzord/JALSE/wiki) for more information.
