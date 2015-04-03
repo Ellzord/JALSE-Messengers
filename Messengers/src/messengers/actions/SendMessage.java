@@ -33,21 +33,27 @@ public class SendMessage implements Action<Entity> {
     private final UUID to;
 
     public SendMessage(final UUID to) {
+	// Recipient
 	this.to = Objects.requireNonNull(to);
     }
 
     @Override
     public void perform(final ActionContext<Entity> context) {
+	// Actor this action was for
 	final Entity actor = context.getActor();
 
+	// Creates random 'sentence'
 	final String text = createText();
 	System.out.println(String.format("%s -> %s: %s", actor.getID(), to, text));
 
+	// Get parent JALSE
 	final EntityContainer container = actor.getContainer();
+	// Get recipient messenger
 	final Messenger recipient = container.getEntityAsType(to, Messenger.class);
 
+	// Create the message
 	final Message m = recipient.newMessage();
 	m.setText(text);
-	m.setFrom(actor.getID());
+	m.setFrom(actor.getID()); // This should trigger a response
     }
 }

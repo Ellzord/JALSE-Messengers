@@ -6,8 +6,6 @@ import jalse.JALSEBuilder;
 import jalse.entities.Entities;
 import jalse.listeners.Listeners;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,42 +20,48 @@ public class Messengers {
 
     public static final int MESSENGERS = 100;
 
-    public static final long SIMULATION_DURATION = TimeUnit.SECONDS.toMillis(20);
-
     public static final long MIN_WAIT = 200;
 
     public static final long MAX_WAIT = 600;
 
     public static void main(final String[] args) throws InterruptedException {
+	// Create a default parent container
 	final JALSE jalse = JALSEBuilder.buildDefaultJALSE();
-	final List<UUID> entityIDs = new ArrayList<>();
 
 	System.out.println("Creating messengers..");
 
 	for (int i = 0; i < MESSENGERS; i++) {
+	    // Create entity marked as a messenger
 	    final Messenger m = jalse.newEntity(Messenger.class);
-	    entityIDs.add(m.getID());
-	    System.out.println(String.format("New Messenger created: %s", m.getID()));
+	    // Reply to the message when from is populated on child message
 	    m.addEntityListener(Listeners.newAttributeListenerSupplier("from", newTypeOf(UUID.class),
 		    ReplyToMessage::new));
+	    System.out.println(String.format("New Messenger created: %s", m.getID()));
 	}
 
 	System.out.println("Sending the first messages..");
 
 	final Random r = ThreadLocalRandom.current();
 	jalse.streamEntities().forEach(e -> {
-	    final UUID recipient = entityIDs.get(r.nextInt(entityIDs.size()));
+	    UUID recipient;
+	    do {
+		// Random recipient
+		recipient = jalse.streamEntities().skip(r.nextInt(MESSENGERS)).findFirst().get().getID();
+	    } while (!e.getID().equals(recipient));
+
 	    System.out.println(String.format("Matching %s -> %s", e.getID(), recipient));
+	    // Send the first message
 	    e.scheduleForActor(new SendMessage(recipient), randomWait(), TimeUnit.MILLISECONDS);
 	});
 
-	System.out.println("Ticking the engine..");
-
-	Thread.sleep(SIMULATION_DURATION);
+	// Sleep and let the messengers communicate
+	Thread.sleep(TimeUnit.SECONDS.toMillis(10));
+	// Cancel actions
 	jalse.stop();
 
 	System.out.println("Stopped the engine..");
 
+	// Find all messages sent
 	final long totalMessages = Entities.walkEntities(jalse).filter(e -> e.isMarkedAsType(Message.class)).count();
 	System.out.println(String.format("A total of %d messages were sent", totalMessages));
     }
