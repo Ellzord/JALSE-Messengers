@@ -1,7 +1,11 @@
 package messengers.actions;
 
+import static jalse.attributes.Attributes.STRING_TYPE;
+import static jalse.attributes.Attributes.newTypeOf;
 import jalse.actions.Action;
 import jalse.actions.ActionContext;
+import jalse.attributes.AttributeContainer;
+import jalse.attributes.DefaultAttributeContainer;
 import jalse.entities.Entity;
 import jalse.entities.EntityContainer;
 
@@ -12,7 +16,6 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-import messengers.entities.Message;
 import messengers.entities.Messenger;
 
 public class SendMessage implements Action<Entity> {
@@ -51,9 +54,12 @@ public class SendMessage implements Action<Entity> {
 	// Get recipient messenger
 	final Messenger recipient = container.getEntityAsType(to, Messenger.class);
 
-	// Create the message
-	final Message m = recipient.newMessage();
-	m.setText(text);
-	m.setFrom(actor.getID()); // This should trigger a response
+	// Create message contents
+	final AttributeContainer contents = new DefaultAttributeContainer();
+	contents.addAttribute("text", STRING_TYPE, text);
+	contents.addAttribute("from", newTypeOf(UUID.class), actor.getID());
+
+	// Create the message and trigger response
+	recipient.newMessage(contents);
     }
 }

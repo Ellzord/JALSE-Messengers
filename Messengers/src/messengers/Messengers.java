@@ -1,10 +1,8 @@
 package messengers;
 
-import static jalse.attributes.Attributes.newTypeOf;
 import jalse.JALSE;
 import jalse.JALSEBuilder;
 import jalse.entities.Entities;
-import jalse.listeners.Listeners;
 
 import java.util.Random;
 import java.util.UUID;
@@ -33,9 +31,9 @@ public class Messengers {
 	for (int i = 0; i < MESSENGERS; i++) {
 	    // Create entity marked as a messenger
 	    final Messenger m = jalse.newEntity(Messenger.class);
-	    // Reply to the message when from is populated on child message
-	    m.addEntityListener(Listeners.newAttributeListenerSupplier("from", newTypeOf(UUID.class),
-		    ReplyToMessage::new));
+	    // Reply to messages
+	    m.addEntityListener(new ReplyToMessage());
+
 	    System.out.println(String.format("New Messenger created: %s", m.getID()));
 	}
 
@@ -47,7 +45,7 @@ public class Messengers {
 	    do {
 		// Random recipient
 		recipient = jalse.streamEntities().skip(r.nextInt(MESSENGERS)).findFirst().get().getID();
-	    } while (!e.getID().equals(recipient));
+	    } while (e.getID().equals(recipient));
 
 	    System.out.println(String.format("Matching %s -> %s", e.getID(), recipient));
 	    // Send the first message
