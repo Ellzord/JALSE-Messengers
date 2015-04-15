@@ -24,7 +24,7 @@ public class Messengers {
 
     public static void main(final String[] args) throws InterruptedException {
 	// Create a default parent container
-	final JALSE jalse = JALSEBuilder.buildDefaultJALSE();
+	final JALSE jalse = JALSEBuilder.newBuilder().setParallelismToProcessors().build();
 
 	System.out.println("Creating messengers..");
 
