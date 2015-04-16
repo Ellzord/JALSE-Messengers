@@ -25,7 +25,7 @@ public class Messengers {
     public static void main(final String[] args) throws InterruptedException {
 	// Create a default parent container
 	final JALSE jalse = JALSEBuilder.newBuilder().setRandomID().setNoEntityLimit().setParallelismToProcessors()
-		.setForkJoin().build();
+		.setForkJoinEngine().build();
 
 	System.out.println("Creating messengers..");
 
