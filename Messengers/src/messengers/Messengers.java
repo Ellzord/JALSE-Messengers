@@ -3,9 +3,8 @@ package messengers;
 import jalse.JALSE;
 import jalse.JALSEBuilder;
 import jalse.entities.Entities;
+import jalse.entities.Entity;
 
-import java.util.Random;
-import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
@@ -40,17 +39,16 @@ public class Messengers {
 
 	System.out.println("Sending the first messages..");
 
-	final Random r = ThreadLocalRandom.current();
 	jalse.streamEntities().forEach(e -> {
-	    UUID recipient;
+	    Entity recipient;
 	    do {
 		// Random recipient
-		recipient = jalse.streamEntities().skip(r.nextInt(MESSENGERS)).findFirst().get().getID();
-	    } while (e.getID().equals(recipient));
+		recipient = Entities.randomEntity(jalse).get();
+	    } while (e.equals(recipient));
 
-	    System.out.println(String.format("Matching %s -> %s", e.getID(), recipient));
+	    System.out.println(String.format("Matching %s -> %s", e.getID(), recipient.getID()));
 	    // Send the first message
-	    e.scheduleForActor(new SendMessage(recipient), randomWait(), TimeUnit.MILLISECONDS);
+	    e.scheduleForActor(new SendMessage(recipient.getID()), randomWait(), TimeUnit.MILLISECONDS);
 	});
 
 	// Sleep and let the messengers communicate
