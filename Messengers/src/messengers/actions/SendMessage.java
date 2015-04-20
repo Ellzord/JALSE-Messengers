@@ -56,8 +56,8 @@ public class SendMessage implements Action<Entity> {
 
 	// Create message contents
 	final AttributeContainer contents = new DefaultAttributeContainer();
-	contents.addAttribute("text", STRING_TYPE, text);
-	contents.addAttribute("from", newTypeOf(UUID.class), actor.getID());
+	contents.setAttribute("text", STRING_TYPE, text);
+	contents.setAttribute("from", newTypeOf(UUID.class), actor.getID());
 
 	// Create the message and trigger response
 	recipient.newMessage(contents);
