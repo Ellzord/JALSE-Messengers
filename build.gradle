@@ -1,0 +1,9 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'messengers.Messengers'
+
+dependencies {
+    compile files('./src/main/resources/JALSE-1.0.3.jar')
+}
