@@ -1,7 +1,7 @@
 package messengers.listeners;
 
 import jalse.entities.Entity;
-import jalse.listeners.EntityAdapter;
+import jalse.listeners.EntityListener;
 import jalse.listeners.EntityEvent;
 
 import java.util.UUID;
@@ -11,7 +11,7 @@ import messengers.Messengers;
 import messengers.actions.SendMessage;
 import messengers.entities.Message;
 
-public class ReplyToMessage extends EntityAdapter {
+public class ReplyToMessage implements EntityListener {
 
     @Override
     public void entityCreated(final EntityEvent event) {
