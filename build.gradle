@@ -1,9 +1,14 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 apply plugin: 'application'
 
 mainClassName = 'messengers.Messengers'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
-    compile files('./src/main/resources/JALSE-1.0.3.jar')
+    compile 'com.github.ellzord:jalse:1.0.4'
 }
