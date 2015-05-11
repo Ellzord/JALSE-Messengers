@@ -1,5 +1,5 @@
 ## Messengers
-Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is a simulation of several people text messenging each other (upon receiving a message a reply is sent back).
+Messengers is a [JALSE](https://github.com/Ellzord/JALSE) example project. It is a simulation of several people text messaging each other (upon receiving a message a reply is sent back).
 
 ### Simulation life-cycle
 1. [Messenger](https://github.com/Ellzord/JALSE-Messengers/blob/master/src/main/java/messengers/entities/Messenger.java)s are created.
