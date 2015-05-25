@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 import messengers.actions.SendMessage;
 import messengers.entities.Message;
 import messengers.entities.Messenger;
-import messengers.listeners.ReplyToMessage;
+import messengers.entities.ReplyToMessage;
 
 public class Messengers {
 

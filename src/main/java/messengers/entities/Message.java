@@ -7,9 +7,9 @@ import java.util.UUID;
 
 public interface Message extends Entity {
 
-    @GetAttribute("from")
+    @GetAttribute
     UUID getFrom();
 
-    @GetAttribute("text")
+    @GetAttribute
     String getText();
 }

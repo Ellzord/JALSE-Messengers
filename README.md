@@ -12,7 +12,7 @@ Optionally you can also create an **Eclipse** project using ```./gradlew eclipse
 2. Messengers are then paired together.
 3. A [SendMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/src/main/java/messengers/actions/SendMessage.java) is scheduled for each messenger.
 4. A message is sent by creating a [Message](https://github.com/Ellzord/JALSE-Messengers/blob/master/src/main/java/messengers/entities/Message.java) entity.
-5. Sending a messages causes [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/src/main/java/messengers/listeners/ReplyToMessage.java) to fire sending a reply back.
+5. Sending a messages causes [ReplyToMessage](https://github.com/Ellzord/JALSE-Messengers/blob/master/src/main/java/messengers/entities/ReplyToMessage.java) to fire sending a reply back.
 6. Repeat from 4.
 
 ### Model key

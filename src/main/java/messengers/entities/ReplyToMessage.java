@@ -1,15 +1,14 @@
-package messengers.listeners;
+package messengers.entities;
 
 import jalse.entities.Entity;
-import jalse.listeners.EntityListener;
-import jalse.listeners.EntityEvent;
+import jalse.entities.EntityListener;
+import jalse.entities.EntityEvent;
 
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import messengers.Messengers;
 import messengers.actions.SendMessage;
-import messengers.entities.Message;
 
 public class ReplyToMessage implements EntityListener {
 
