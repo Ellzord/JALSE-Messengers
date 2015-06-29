@@ -2,12 +2,6 @@ package messengers.actions;
 
 import static jalse.attributes.Attributes.STRING_TYPE;
 import static jalse.attributes.Attributes.newTypeOf;
-import jalse.actions.Action;
-import jalse.actions.ActionContext;
-import jalse.attributes.AttributeContainer;
-import jalse.attributes.DefaultAttributeContainer;
-import jalse.entities.Entity;
-import jalse.entities.EntityContainer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +10,12 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+import jalse.actions.Action;
+import jalse.actions.ActionContext;
+import jalse.attributes.AttributeContainer;
+import jalse.attributes.DefaultAttributeContainer;
+import jalse.entities.Entity;
+import jalse.entities.EntityContainer;
 import messengers.entities.Messenger;
 
 public class SendMessage implements Action<Entity> {

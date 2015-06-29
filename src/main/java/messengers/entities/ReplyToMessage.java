@@ -1,12 +1,11 @@
 package messengers.entities;
 
-import jalse.entities.Entity;
-import jalse.entities.EntityListener;
-import jalse.entities.EntityEvent;
-
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
+import jalse.entities.Entity;
+import jalse.entities.EntityEvent;
+import jalse.entities.EntityListener;
 import messengers.Messengers;
 import messengers.actions.SendMessage;
 

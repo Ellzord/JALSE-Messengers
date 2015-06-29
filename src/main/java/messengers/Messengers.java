@@ -1,13 +1,12 @@
 package messengers;
 
-import jalse.JALSE;
-import jalse.JALSEBuilder;
-import jalse.entities.Entities;
-import jalse.entities.Entity;
-
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
+import jalse.DefaultJALSE;
+import jalse.JALSE;
+import jalse.entities.Entities;
+import jalse.entities.Entity;
 import messengers.actions.SendMessage;
 import messengers.entities.Message;
 import messengers.entities.Messenger;
@@ -23,8 +22,7 @@ public class Messengers {
 
     public static void main(final String[] args) throws InterruptedException {
 	// Create a default parent container
-	final JALSE jalse = JALSEBuilder.newBuilder().setRandomID().setNoEntityLimit().setParallelismToProcessors()
-		.setForkJoinEngine().build();
+	final JALSE jalse = new DefaultJALSE.Builder().setParallelismToProcessors().setForkJoinEngine().build();
 
 	System.out.println("Creating messengers..");
 
